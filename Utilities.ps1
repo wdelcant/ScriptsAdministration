@@ -1,7 +1,8 @@
     # Author: Wilson Del Canto
     # Cencosud S.A
     # Date: 2023-11-11
-    # Version: 1.2 alpha
+    # Version: 1.4 alpha
+    $version = "1.4 alpha"
 
     # Este script proporciona una interfaz para realizar operaciones remotas en equipos Windows.
 
@@ -32,7 +33,7 @@
     # Inicio del bucle principal del programa.
     do {    
         # Menú principal que permite seleccionar entre diferentes opciones.
-        $OpcionPrincipal = Read-Host "Que deseas hacer?`n`n1. Realizar operaciones en equipo remoto`n2. Consulta usuario dominio`n3. Activar Office365`n4. Update (test)`n5. Salir`n`nSelecciona la opción"
+        $OpcionPrincipal = Read-Host "Que deseas hacer?`n`n1. Realizar operaciones en equipo remoto`n2. Consulta usuario dominio`n3. Activar Office365`n4. Update`n5. Salir`n`nSelecciona la opción"
 
         # Switch para manejar las diferentes opciones del menú principal.
         switch ($OpcionPrincipal) { 
@@ -191,10 +192,10 @@
                 Write-Host "Actualizando el script remotamente..."
 
                 # URL del repositorio central donde se encuentra la versión más reciente del script
-                $ScriptRepoUrl = "https://tu-repositorio/scripts/AdminScript.ps1"
+                $ScriptRepoUrl = "https://raw.githubusercontent.com/wdelcant/ScriptsAdministration/main/Utilities.ps1"
 
                 # Ruta local donde se guardará la versión actualizada del script
-                $LocalScriptPath = Join-Path $ScriptDirectory "AdminScriptUpdated.ps1"
+                $LocalScriptPath = Join-Path $ScriptDirectory ("Utilities_v$($version).ps1")
 
                 # Descargar el script actualizado desde el repositorio
                 Invoke-WebRequest -Uri $ScriptRepoUrl -OutFile $LocalScriptPath
@@ -202,8 +203,11 @@
                 # Ejecutar el script actualizado
                 Invoke-Expression -Command "& `"$LocalScriptPath`""
 
+                # Borrar el script anterior
+                Remove-Item -Path $LocalScriptPath -Force
+
                 # Salir del bucle principal después de actualizar el script
-                $Respuesta = 'n'
+                Exit-PSHostProcess
             }
             5 {
                 # Opción para salir del bucle principal.
