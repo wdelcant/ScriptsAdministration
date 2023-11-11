@@ -32,7 +32,7 @@
     # Inicio del bucle principal del programa.
     do {    
         # Menú principal que permite seleccionar entre diferentes opciones.
-        $OpcionPrincipal = Read-Host "Que deseas hacer?`n`n1. Realizar operaciones en equipo remoto`n2. Consulta usuario dominio`n3. Activar Office365`n4. Update`n5. Salir`n`nSelecciona la opción"
+        $OpcionPrincipal = Read-Host "Que deseas hacer?`n`n1. Realizar operaciones en equipo remoto`n2. Consulta usuario dominio`n3. Activar Office365`n4. Update`n5. Salir`n`nSelecciona la opcion"
 
         # Switch para manejar las diferentes opciones del menú principal.
         switch ($OpcionPrincipal) { 
