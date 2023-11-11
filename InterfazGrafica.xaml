@@ -1,0 +1,11 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Operaciones Remotas" Height="300" Width="400">
+    <Grid>
+        <StackPanel>
+            <Button Content="Realizar operaciones con el equipo" Width="200" Height="30" Margin="5"/>
+            <Button Content="Consulta usuario" Width="200" Height="30" Margin="5"/>
+            <Button Content="Salir" Width="200" Height="30" Margin="5"/>
+        </StackPanel>
+    </Grid>
+</Window>
