@@ -1,8 +1,7 @@
     # Author: Wilson Del Canto
     # Cencosud S.A
-    # Date: 2023-11-11
-    # Version: 1.4 alpha
     $version = "1.4 alpha"
+    $date = "2023-11-11"
 
     # Este script proporciona una interfaz para realizar operaciones remotas en equipos Windows.
 
@@ -20,8 +19,8 @@
 
     # Presenta información sobre la versión y la fecha.
     Write-Host "Bienvenido al programa de operaciones remotas." -ForegroundColor Blue
-    Write-Host "# Version: 1.2 alpha" -ForegroundColor Green
-    Write-Host "# Date: 2023-11-10`n`n" -ForegroundColor Green
+    Write-Host ("# Version: $($version)") -ForegroundColor Green
+    Write-Host ("# Date: $($date)`n`n") -ForegroundColor Green
 
     # Manejo de errores
     trap {
@@ -202,9 +201,6 @@
 
                 # Ejecutar el script actualizado
                 Invoke-Expression -Command "& `"$LocalScriptPath`""
-
-                # Borrar el script anterior
-                Remove-Item -Path $LocalScriptPath -Force
 
                 # Salir del bucle principal después de actualizar el script
                 Exit-PSHostProcess
